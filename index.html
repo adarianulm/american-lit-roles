@@ -6,7 +6,7 @@
 <style>
   body {
     font-family: Arial, sans-serif;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
     padding: 20px;
   }
@@ -46,6 +46,7 @@
 <div id="output"></div>
 
 <script>
+// ===== ROLES =====
 const roles = [
   "Media Maven",
   "Reality Liaison",
@@ -54,7 +55,8 @@ const roles = [
   "Time Tracker"
 ];
 
-// EDIT THIS SECTION ONLY
+// ===== GROUPS & STUDENTS =====
+// REPLACE THIS ENTIRE BLOCK WITH YOUR 7 GROUPS AND STARTING ROLES
 const groups = [
   {
     name: "Semester Group 1",
@@ -127,11 +129,10 @@ const groups = [
   }
 ];
 
-  // Add remaining groups here
-];
-
+// ===== ROTATION LOGIC =====
 function getRole(startRole, weekOffset) {
   const startIndex = roles.indexOf(startRole);
+  if (startIndex === -1) return ""; // blank if startRole missing
   return roles[(startIndex + weekOffset) % roles.length];
 }
 
@@ -154,6 +155,7 @@ function render() {
   document.getElementById("output").innerHTML = html;
 }
 
+// Initial render
 render();
 </script>
 
